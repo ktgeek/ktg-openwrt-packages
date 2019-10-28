@@ -26,7 +26,7 @@ define Package/bluld
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE:=Blinkstick User space LED Daemon
-  DEPENDS:=+hidapi
+  DEPENDS:=+libstdcpp +hidapi
 endef
 
 define Package/helloworld/description
@@ -35,7 +35,7 @@ endef
 
 define Package/bluld/install
 	$(INSTALL_DIR) $(1)/usr/sbin
-	$(INSTALL_DIR) $(PKG_BUILD_DIR)/bluld $(1)/usr/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/bluld $(1)/usr/sbin
 endef
 
 $(eval $(call BuildPackage,bluld))
