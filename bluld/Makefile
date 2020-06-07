@@ -2,7 +2,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=blulb
 PKG_VERSION:=0.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 SOURCE_DIR:=/work/src/blinkstick-userspace-led-daemon
 
@@ -29,13 +29,21 @@ define Package/bluld
   DEPENDS:=+libstdcpp +hidapi
 endef
 
-define Package/helloworld/description
+define Package/bluld/description
   A daemon to expose a Blinkstick to the Linux kernel LED class via /dev/uleds. (Kernel 4.10+ required.)
+endef
+
+define Package/bluld/conffiles
+/etc/config/bluld
 endef
 
 define Package/bluld/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/sbin/bluld $(1)/usr/sbin
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_CONF) ./files/bluld.conf $(1)/etc/config/bluld
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) ./files/bluld.init $(1)/etc/init.d/bluld.init
 endef
 
 $(eval $(call BuildPackage,bluld))
