@@ -20,7 +20,7 @@ start_service() {
     procd_set_param command $PROG $led_count $colors
     procd_set_param stdout 1
     procd_set_param stderr 1
-	procd_set_param nice 10
+    procd_set_param nice 10
     procd_close_instance
 }
 
