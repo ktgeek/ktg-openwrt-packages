@@ -1,15 +1,15 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=blulb
-PKG_VERSION:=0.2
+PKG_VERSION:=1.0
 PKG_RELEASE:=1
 
 SOURCE_DIR:=/work/src/blinkstick-userspace-led-daemon
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL=https://github.com/ktgeek/blinkstick-userspace-led-daemon.git
-PKG_SOURCE_DATE:=2020-06-08
-PKG_SOURCE_VERSION:=ee21ab898254872f35352edbfa0c41a9b16da8ec
+PKG_SOURCE_DATE:=2020-06-19
+PKG_SOURCE_VERSION:=3321703a093c0bf9da320f3054a4ba6e07212085
 
 PKG_MAINTAINER:=Keith T. Garner <kgarner@kgarner.com>
 PKG_LICENSE:=MIT
